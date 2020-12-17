@@ -1,0 +1,27 @@
+{
+  "name": "node-red-contrib-akinator",
+  "description": "Node-RED node for akinator",
+  "version": "0.1.0",
+  "author": "<snoopfab0@gmail.com>",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/snoopfab/node-red-contrib-akinator.git"
+  },
+  "license": "MIT",
+  "keywords": [
+    "node-red",
+    "akinator"
+  ],
+  "node-red": {
+    "nodes": {
+      "akinator": "src/akinator.js"
+    }
+  },
+  "dependencies": {
+    "aki-api": "^5.2.0"
+  },
+  "bugs": {
+    "url": "https://github.com/snoopfab/node-red-contrib-akinator/issues"
+  },
+  "homepage": "https://github.com/snoopfab/node-red-contrib-akinator#readme"
+}

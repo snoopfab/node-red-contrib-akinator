@@ -1,7 +1,7 @@
 <script type="text/javascript">
     RED.nodes.registerType('akinator', {
         category: 'function',
-        color: '#B9541D',
+        color: '#B299FF',
         icon: 'akinator.png',
         defaults: {
             name: { value: '' },
@@ -52,8 +52,27 @@
 <script type="text/x-red" data-help-name="akinator">
     <h3>Input</h3>
     <dl class="message-properties">
-        <dt>params <span class="property-type">array</span></dt>
-        <dd>Array that contains all required arguments for the selected API function.</dd>
+        <dt>params <span class="property-type">Object</span></dt>
+        <dd>one payload with an answer integer parameter that can take the following values:
+	    <ul>
+		    <li><b>null</b>:  for starting/restarting the game</li>
+	            <li><b>0</b> : for answering 'yes' to the question</li>
+	            <li><b>1</b> : for answering 'no' to the question</li>
+	            <li><b>2</b> : for answering 'i don't know' to the question</li>
+	            <li><b>3</b> : for answering 'probably' to the question</li>
+	            <li><b>4</b> : for answering 'probably not' to the question.</li>
+	    </ul>
+            <code>
+<pre>
+{
+    "payload": {
+        "answer": integer,
+        "region": string  //  [This one is optionnal and can be used to override the region selected in the node settings]
+    }
+ }
+</pre>
+            </code>
+        </dd>
     </dl>
 
     <h3>Outputs</h3>
@@ -61,29 +80,27 @@
          <li>Standard output
              <dl class="message-properties">
                  <dt>payload <span class="property-type">Object</span></dt>
-                 <dd>Object that contains the result of the API call.</dd>
-             </dl>
-         </li>
-         <li>Standard error
-             <dl class="message-properties">
-                 <dt>error <span class="property-type">string</span></dt>
-                 <dd>Shows error information.</dd>
+                 <dd>the output message will contain the following parameters:
+			<ul>
+	                    <li><b>question</b>: the question that akinator asks you to guess the character</li>
+	                    <li><b>answers</b>: Can be either</li>
+	                        <ul><li>the set of possible answers internationalized as an array of string</li>
+	                        <li>the set of guesses as an array of objects</li></ul>
+	                    <li><b>progress</b> : the progression in percent of the game.</li>
+	                    <li><b>win</b> : boolean flag indicating that the game ended and the results are given in the answers array</li>
+			</ul>
+                    	<code>
+<pre>{
+   "question":"Is your character real ?",
+   "answers":["Yes","No","I don't know","Probably","Probably not"],
+   "progress":0,
+   "win":false
+}
+</pre>
+			</code>
+		</dd>
              </dl>
          </li>
      </ol>
 
-    <h3>Details</h3>
-    <p><code>msg.params</code> is used to define all required arguments for the specifed API call.
-    It needs to be defined as an array. The order of the entries inside the array matches the order 
-    of the arguments for each function. For an overview about each API function check out the 
-    <a href="https://github.com/thelinmichael/spotify-web-api-node/blob/master/src/spotify-web-api.js" target="_blank">API description</a><br/><br/>
-    Example:<br/>
-    <code>
-        // API function: getArtistAlbums<br/>
-        msg.params = [<br/>
-            '43ZHCT0cAZBISjO8DG9PnE', /* Artist ID */<br/>
-            { limit: 10, offset: 20 } /* Options */<br/>
-        ];
-    </code>
-    </p>
  </script>

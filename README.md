@@ -1,4 +1,9 @@
 # Node-RED node for Akinator
+[![Platform](https://img.shields.io/badge/platform-Node--RED-red)](https://nodered.org)
+![License](https://img.shields.io/github/license/snoopfab/node-red-contrib-akinator.svg)
+[![Downloads](https://img.shields.io/npm/dm/node-red-contrib-akinator.svg)](https://www.npmjs.com/package/node-red-contrib-akinator)
+[![NPM](https://img.shields.io/npm/v/node-red-contrib-akinator?logo=npm)](https://www.npmjs.org/package/node-red-contrib-akinator)
+[![Known Vulnerabilities](https://snyk.io/test/npm/node-red-contrib-akinator/badge.svg)](https://snyk.io/test/npm/node-red-contrib-akinator)
 
 This node for Node-RED is a wrapper for [aki-api](https://github.com/jgoralcz/aki-api).
 
@@ -45,7 +50,11 @@ the output message will contain the following parameters:
 
 ## How to install
 
-Run the following command in the root directory of your Node-RED installation
+[![NPM](https://nodei.co/npm/node-red-contrib-akinator.png?downloads=true)](https://nodei.co/npm/node-red-contrib-akinator/)
+
+You can install the nodes using node-red's "Manage palette" in the side bar.
+
+Or run the following command in the root directory of your Node-RED installation
 ```
 npm install node-red-contrib-akinator
 ```

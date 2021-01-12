@@ -95,6 +95,7 @@ the supported regions are those supported by the aki-api
   'id'
 ]
 ```
+
 Note the two region variants :
 - "_objects" to make akinator guess objects instead of characters
 - "_animals" to make akinator guess animals instead of characters
